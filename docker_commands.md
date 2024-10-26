@@ -62,3 +62,6 @@
 
 ##### parar e remover docker compose e deletar volumes desnecessários:
 `docker compose down -v`
+
+##### rodar docker compose em background selecionando o ambiente:
+`docker compose -f docker-compose.yml -f docker-compose.<env_mode>.yml up -d`

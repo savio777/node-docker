@@ -4,8 +4,10 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.get("/", (_, res: Response) => {
-  res.json({ hello: `hello ${port} :) with docker` });
+app.get("/", (_: any, res: Response) => {
+  res.json({
+    hello: `hello ${port} :)with docker in ${process.env.NODE_ENV} mode :)`,
+  });
 });
 
 app.listen(port, () => {

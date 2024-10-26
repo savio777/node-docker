@@ -5,16 +5,23 @@ WORKDIR /app
 
 # copiar package.json e lock para o container
 COPY package.json .
-COPY yarn.lock .
-
-# instalar as libs node para o container
-RUN npm i -G yarn && yarn
-
-# copiar todos os arquivos para dentro do container
-COPY . ./
 
 # variáveis de desenvolvimento
 ENV PORT=3000
+
+# variável usada no processo de build da imagem
+ARG NODE_ENV
+
+
+# instalar as libs para o container
+# exemplo de comando específico para cada ambiente
+RUN if [ "$NODE_ENV" = "development" ]; \
+    then npm i -G yarn && yarn; \
+    else npm i -G yarn && yarn install --production=true; \
+    fi
+
+# copiar todos os arquivos para dentro do container
+COPY . ./
 
 # funciona como documentação, não expõem realmente a porta
 EXPOSE $PORT
