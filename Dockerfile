@@ -13,8 +13,11 @@ RUN npm i -G yarn && yarn
 # copiar todos os arquivos para dentro do container
 COPY . ./
 
+# variáveis de desenvolvimento
+ENV PORT=3000
+
 # funciona como documentação, não expõem realmente a porta
-EXPOSE 3000
+EXPOSE $PORT
 
 # comando para rodar a aplicação
 CMD ["yarn", "dev"]
