@@ -4,5 +4,8 @@
 
 ## anotações:
 
-#### config typescript:
+#### configurações typescript:
 `yarn add -D typescript node-dev ts-node && npx tsc --init`
+
+#### rodando Dockerfile:
+`docker build -t node-app-custom-image . && docker run -d --name node-app node-app-custom-image`
