@@ -14,12 +14,20 @@
 ##### parar e deletar container:
 `docker rm <name_container> -f`
 
+##### parar e deletar container e volume:
+`docker rm <name_container> -fv`
+
 ##### build da imagem:
 `docker build .-t <name_image> .`
 
-
 ##### rodar shell dentro do container:
 `docker exec -it <name_container> bash`
+
+#### ver volumes:
+`docker volume ls`
+
+#### deletar volumes não usados:
+`docker volume prune`
 
 ##### rodar container a partir da sua imagem:
 `docker run -d --env <name_env>=<value_env> --env-file <path_local_env> -v <path_project>:<path_container_project>:ro -p <port_outside>:<port_intern> --name <name_container> <name_image>`
