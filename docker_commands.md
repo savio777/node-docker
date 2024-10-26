@@ -1,3 +1,5 @@
+### docker cli
+
 ##### ver imagens 
 `docker image ls`
 
@@ -37,3 +39,26 @@
 > - `--name` -> nome do container
 > - `--env` -> passar váriaveis de ambiente
 > - `--env-file` -> passar caminho para o arquivo env local
+
+### docker compose
+
+##### opções docker compose up:
+`docker compose up --help`
+
+##### rodar docker compose:
+`docker compose up`
+
+##### rodar docker compose em background:
+`docker compose up -d`
+
+##### rodar docker compose em background e buildar imagem antes do container:
+`docker compose up -d --build`
+
+##### parar docker compose:
+`docker compose stop`
+
+##### parar e remover docker compose:
+`docker compose down`
+
+##### parar e remover docker compose e deletar volumes desnecessários:
+`docker compose down -v`
