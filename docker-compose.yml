@@ -4,11 +4,16 @@ services:
     ports:
       - "3000:3000" # <porta_externa>:<porta:interna>
     volumes:
-      - ./:/app  # <caminho_local>:<caminho_container>
+      - ./:/app # <caminho_local>:<caminho_container>
       - /app/node_modules # volume próprio para o node_modules
     # environment:
     #   - PORT=3000
     env_file:
       - ./.env
-  # postgres:
+  mongo:
+    image: mongo # pega imagem pronta do site docker hub
+    env_file:
+      - ./.env
+    volumes:
+      - /data/db
   # redis:

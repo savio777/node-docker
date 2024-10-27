@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.get("/", (_: any, res: Response) => {
   res.json({
-    hello: `hello ${port} :)with docker in ${process.env.NODE_ENV} mode :)`,
+    hello: `hello ${port} ${process.env.NODE_ENV} :)`,
   });
 });
 
