@@ -1,22 +1,24 @@
 import express, { Response } from "express";
 
 import mongoose from "mongoose";
+import variables from "./src/config/variables";
 
-// <name_servie>:27017
+// <name_servie>:<port>
+
+const connect_url = `mongodb://${variables.MONGO_USER}:${variables.MONGO_PASSWORD}@${variables.MONGO_IP}:${variables.MONGO_PORT}/my_database`;
+
 mongoose
-  .connect(
-    `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/my_database/?authSource=admin`
-  )
+  .connect(connect_url, { authSource: "admin" })
   .then(() => console.log("mongo connected :)"))
   .catch((e) => console.log("error mongo", e));
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = variables.PORT || 3000;
 
 app.get("/", (_: any, res: Response) => {
   res.json({
-    hello: `hello ${port} ${process.env.NODE_ENV} :)`,
+    hello: `hello ${port} ${variables.NODE_ENV} :)`,
   });
 });
 

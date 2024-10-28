@@ -10,6 +10,9 @@ services:
     #   - PORT=3000
     env_file:
       - ./.env
+    depends_on:
+      # serviço só será iniciado após o mongo
+      - mongo
   mongo:
     image: mongo # pega imagem pronta do site docker hub
     env_file:
