@@ -1,10 +1,9 @@
 import express, { Response } from "express";
-
 import mongoose from "mongoose";
-import variables from "./src/config/variables";
+
+import variables from "@/config/variables";
 
 // <name_servie>:<port>
-
 const connect_url = `mongodb://${variables.MONGO_USER}:${variables.MONGO_PASSWORD}@${variables.MONGO_IP}:${variables.MONGO_PORT}/my_database`;
 
 mongoose
@@ -18,10 +17,10 @@ const port = variables.PORT || 3000;
 
 app.get("/", (_: any, res: Response) => {
   res.json({
-    hello: `hello ${port} ${variables.NODE_ENV} :)`,
+    hello: `${port} ${variables.NODE_ENV} :)`,
   });
 });
 
 app.listen(port, () => {
-  console.log(`app is running on http://localhost:${port}/ :)`);
+  console.log(`api is running on http://localhost:${port}/ :)`);
 });
