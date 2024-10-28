@@ -68,3 +68,12 @@
 
 ##### rodar docker compose em background selecionando o ambiente:
 `docker compose -f docker-compose.yml -f docker-compose.<env_mode>.yml up -d`
+
+##### ver detalhes sobre o container:
+`docker inspect <container>`
+
+##### ver logs do container:
+`docker logs <container>`
+
+##### ver logs do container e ver novos logs automaticamente:
+`docker logs <container> -f`
