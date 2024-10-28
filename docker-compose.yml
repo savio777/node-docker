@@ -15,5 +15,8 @@ services:
     env_file:
       - ./.env
     volumes:
-      - /data/db
+      - mongo-db:/data/db # nome caminho da pasta maquina host:caminho do banco mongo no container
   # redis:
+
+volumes:
+  mongo-db:

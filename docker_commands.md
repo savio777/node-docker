@@ -23,7 +23,10 @@
 `docker build .-t <name_image> .`
 
 ##### rodar shell dentro do container:
-`docker exec -it <name_container> bash`
+`docker exec -it <name_container> <shell>`
+
+##### ex. rodar shell dentro do container em um banco:
+`docker exec -it <container> <shell_db> -u "<user>" -p "<pass>"`
 
 #### ver volumes:
 `docker volume ls`
