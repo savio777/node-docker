@@ -16,6 +16,8 @@ ARG NODE_ENV
 # instalar as libs para o container
 # exemplo de comando específico para cada ambiente
 RUN if [ "$NODE_ENV" = "development" ]; \
+    echo "teste"; \
+    rm -rf node_modules; \
     then npm i -G yarn && yarn; \
     else npm i -G yarn && yarn install --production=true; \
     fi

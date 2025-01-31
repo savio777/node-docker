@@ -11,20 +11,24 @@ export const getAllPosts = async (
   try {
     const posts = await Post.find();
 
-    res.status(200).json({
+    const response: IResponseList<{ posts: IPost[] }> = {
       status: 200,
       data: {
         message: "Posts list",
         posts,
         results: posts.length,
       },
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
-    res.status(400).json({
+    const response: IResponseError = {
       status: 400,
       message: "Error on get posts list",
       error: variables.NODE_ENV === "development" ? error : "Error",
-    });
+    };
+
+    res.status(400).json(response);
   }
 };
 
@@ -40,19 +44,23 @@ export const getPostById = async (
 
     const post = await Post.findById(req.params.id);
 
-    res.status(200).json({
+    const response: IResponse<{ post: IPost | null }> = {
       status: 200,
       data: {
         message: "Post details by id",
         post,
       },
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
-    res.status(400).json({
+    const response: IResponseError = {
       status: 400,
       message: "Error on get post details by id",
       error: variables.NODE_ENV === "development" ? error : "Error",
-    });
+    };
+
+    res.status(400).json(response);
   }
 };
 
@@ -62,23 +70,25 @@ export const createPost = async (
   next: NextFunction
 ) => {
   try {
-    console.log(req.body);
-
     const post = await Post.create(req.body);
 
-    res.status(200).json({
+    const response: IResponse<{ post: IPost }> = {
       status: 200,
       data: {
         message: "Posts created",
         post,
       },
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
-    res.status(400).json({
+    const response: IResponseError = {
       status: 400,
       message: "Error on create posts",
       error: variables.NODE_ENV === "development" ? error : "Error",
-    });
+    };
+
+    res.status(400).json(response);
   }
 };
 
@@ -94,19 +104,23 @@ export const deletePostById = async (
 
     const post = await Post.findByIdAndDelete(req.params.id);
 
-    res.status(200).json({
+    const response: IResponse<{ post: IPost | null }> = {
       status: 200,
       data: {
         message: "Post deleted by id",
         post,
       },
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
-    res.status(400).json({
+    const response: IResponseError = {
       status: 400,
       message: "Error on post deleted by id",
       error: variables.NODE_ENV === "development" ? error : "Error",
-    });
+    };
+
+    res.status(400).json(response);
   }
 };
 
@@ -125,18 +139,22 @@ export const updatePostById = async (
       runValidators: true,
     });
 
-    res.status(200).json({
+    const response: IResponse<{ post: IPost | null }> = {
       status: 200,
       data: {
         message: "Post update by id",
         post,
       },
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
-    res.status(400).json({
+    const response: IResponseError = {
       status: 400,
       message: "Error on post update by id",
       error: variables.NODE_ENV === "development" ? error : "Error",
-    });
+    };
+
+    res.status(400).json(response);
   }
 };
