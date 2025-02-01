@@ -93,7 +93,7 @@ export const postsSchemaSwagger: {
 };
 
 export const postsPathsSwagger: Paths = {
-  "/posts": {
+  "/api/v1/posts": {
     post: {
       tags: ["Post"],
       security: [
@@ -169,7 +169,7 @@ export const postsPathsSwagger: Paths = {
       },
     },
   },
-  "/posts/{id}": {
+  "/api/v1/posts/{id}": {
     get: {
       tags: ["Post"],
       security: [

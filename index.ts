@@ -24,7 +24,7 @@ app.get("/", (_: any, res: Response) => {
 });
 
 app.use(express.json());
-app.use("/posts", postRouter);
+app.use("/api/v1/posts", postRouter);
 
 swaggerDocs(app);
 

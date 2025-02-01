@@ -1,7 +1,7 @@
 # node with docker
 
 - [tutorial](https://www.youtube.com/watch?v=9zUHg7xjIqQ)
-> 2:33:51 / 5:21:59
+> 2:52:19 / 5:21:59
 
 ## anotações:
 
